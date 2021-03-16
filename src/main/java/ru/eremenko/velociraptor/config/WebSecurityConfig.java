@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import ru.eremenko.velociraptor.domain.User;
-import ru.eremenko.velociraptor.repo.UserDetailRepo;
+import ru.eremenko.velociraptor.repo.UserDetailsRepo;
 
 import java.time.LocalDateTime;
 
@@ -29,10 +29,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PrincipalExtractor principalExtractor(UserDetailRepo userDetailRepo){
+    public PrincipalExtractor principalExtractor(UserDetailsRepo userDetailsRepo){
         return map -> {
             String id = (String) map.get("sub");
-            User user = userDetailRepo.findById(id).orElseGet(()-> {
+            User user = userDetailsRepo.findById(id).orElseGet(()-> {
                 User newUser = new User();
 
                 newUser.setId(id);
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             });
             user.setLastVisit(LocalDateTime.now());
 
-           return userDetailRepo.save(user);
+           return userDetailsRepo.save(user);
         };
     }
 }

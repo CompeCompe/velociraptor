@@ -21,7 +21,7 @@ dependencies {
 	implementation 'javax.xml.bind:jaxb-api'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.0.RELEASE'
-	implementation 'org.springframework.session:spring-session-jdbc'
+//	implementation 'org.springframework.session:spring-session-jdbc' потом верну, когда все с бд доковыряю
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.jsoup:jsoup:1.13.1'
