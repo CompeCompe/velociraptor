@@ -1,6 +1,11 @@
 <template>
-   <v-app>
-       <v-toolbar app>
+   <v-app
+    dark
+   >
+       <v-toolbar
+          app
+          color="purple"
+       >
            <v-toolbar-title> Velociraptor </v-toolbar-title>
            <v-btn flat
                 v-if="profile"

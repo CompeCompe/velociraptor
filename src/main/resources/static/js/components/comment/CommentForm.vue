@@ -6,7 +6,9 @@
             v-model="text"
             @keyup.enter="save"
         />
-        <v-btn @click="save">
+        <v-btn
+        color="purple"
+        @click="save">
             Add
         </v-btn>
     </v-layout>
